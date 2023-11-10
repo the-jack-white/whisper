@@ -16,11 +16,7 @@ const ChatBubble = ({
   displayName,
 }: ChatBubbleType) => {
   return (
-    <div
-      className={`flex gap-1 my-2 px-4 ${
-        isMessageSent && "justify-end"
-      } w-full`}
-    >
+    <div className={`flex gap-1 my-2 ${isMessageSent && "justify-end"} w-full`}>
       {!isMessageSent && (
         <Image
           src={photoURL}
