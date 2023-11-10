@@ -22,6 +22,7 @@ const ChatInput = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [allMessages, setAllMessages] = useState<any[]>([]);
 
+  // const textareaRef = useRef<any>();
   const scroll = useRef<any>();
 
   const scrollToViewHandler = () => {
@@ -35,7 +36,7 @@ const ChatInput = () => {
   };
 
   const sendMessageHandler = async () => {
-    const { uid, photoURL } = currentUser;
+    const { uid, photoURL, displayName } = currentUser;
     try {
       const entry = {
         collectionName: "messages",
@@ -45,6 +46,7 @@ const ChatInput = () => {
           createdAt: serverTimestamp(),
           messageId: uuidv4(),
           userId: uid,
+          displayName,
           photoURL,
         },
       };
@@ -80,25 +82,46 @@ const ChatInput = () => {
     scrollToViewHandler();
   }, []);
 
+  // useEffect(() => {
+  //   textareaRef.current.style.height = "0px";
+  //   const scrollHeight = textareaRef.current.scrollHeight;
+
+  //   console.log("Scroll height: ", scrollHeight);
+
+  //   textareaRef.current.style.height = scrollHeight + "px";
+  // }, [inputValue]);
+
   return (
     <section>
       <div className="flex flex-col justify-end w-full h-[70vh]">
         <div className="h-full overflow-auto no-scrollbar">
-          {allMessages.map(({ messageId, userId, createdAt, message }) => (
-            <ChatBubble
-              key={messageId}
-              isMessageSent={userId === currentUser.uid}
-              time={new Date(createdAt?.seconds * 1000)}
-              message={message}
-            />
-          ))}
+          {allMessages.map(
+            ({
+              messageId,
+              userId,
+              createdAt,
+              message,
+              photoURL,
+              displayName,
+            }) => (
+              <ChatBubble
+                key={messageId}
+                isMessageSent={userId !== currentUser.uid}
+                time={new Date(createdAt?.seconds * 1000)}
+                message={message}
+                photoURL={photoURL}
+                displayName={displayName}
+              />
+            )
+          )}
           <span id="scrollSpan" ref={scroll} className=""></span>
         </div>
       </div>
-      <div className="flex items-center gap-4 w-full h-16 rounded-lg bg-tertiary text-primaryDark p-2 mt-4">
+      <div className="flex flex-row justify-between items-center gap-4 w-full rounded-lg bg-tertiary text-primaryDark p-2 mt-4">
         <input
-          className="w-full p-2 rounded bg-tertiary text-primaryDark outline-none"
-          type="text"
+          // ref={textareaRef}
+          className="rounded bg-tertiary text-primaryDark outline-none no-scrollbar"
+          // cols={50}
           value={inputValue}
           placeholder="Type a message"
           onChange={(e) => setInputValue(e.target.value)}
@@ -110,7 +133,7 @@ const ChatInput = () => {
         />
         <button
           onClick={sendMessageHandler}
-          className="bi bi-send text-primaryDark bg-secondaryLight py-2 px-3 text-lg rounded-full"
+          className=" bi bi-send text-primaryDark bg-secondaryLight py-1 px-2 text-lg rounded-full"
           disabled={!inputValue}
         />
       </div>

@@ -5,6 +5,7 @@ import {
   AuthContainer,
   ChatBody,
   ChatContainer,
+  Login,
   Navigation,
 } from "@/components";
 import { useAuth } from "@/context/AuthContext/AuthContext";
@@ -16,17 +17,12 @@ export default function Home() {
     <AppContainer>
       {currentUser ? (
         <ChatContainer>
-          <Navigation />
+          {/* <Navigation /> */}
           <ChatBody />
         </ChatContainer>
       ) : (
         <AuthContainer>
-          <button
-            className="p-2 rounded border border-primaryDark hover:bg-secondaryDark hover:border-secondaryDark hover:text-tertiary"
-            onClick={signupWithGoogle}
-          >
-            Login with Google
-          </button>
+          <Login callback={signupWithGoogle} />
         </AuthContainer>
       )}
     </AppContainer>

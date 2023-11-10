@@ -1,9 +1,12 @@
+import { useAuth } from "@/context/AuthContext/AuthContext";
+
 type ChatHeaderProps = {
   name: string;
   status: string;
 };
 
 const ChatHeader = ({ name, status }: ChatHeaderProps) => {
+  const { logout } = useAuth();
   return (
     <section className="flex justify-between items-center w-full h-20 px-2">
       <div className="flex gap-2">
@@ -13,7 +16,10 @@ const ChatHeader = ({ name, status }: ChatHeaderProps) => {
           <span className="text-xs text-secondaryDark">{status}</span>
         </div>
       </div>
-      <a className="bi bi-three-dots text-2xl text-primaryDark" />
+      <a
+        className="bi bi-three-dots text-2xl text-primaryDark"
+        onClick={logout}
+      />
     </section>
   );
 };

@@ -9,6 +9,7 @@ import AppContainer from "./Containers/AppContainer/AppContainer";
 import ChatContainer from "./Containers/ChatContainer/ChatContainer";
 import AuthContainer from "./Containers/AuthContainer/AuthContainer";
 import Providers from "./Providers/Providers";
+import Login from "./Login/Login";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   ChatBubble,
   Providers,
   AuthContainer,
+  Login,
 };
