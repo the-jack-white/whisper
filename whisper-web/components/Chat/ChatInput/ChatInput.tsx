@@ -106,7 +106,7 @@ const ChatInput = () => {
             }) => (
               <ChatBubble
                 key={messageId}
-                isMessageSent={userId !== currentUser.uid}
+                isMessageSent={userId === currentUser.uid}
                 time={new Date(createdAt?.seconds * 1000)}
                 message={message}
                 photoURL={photoURL}

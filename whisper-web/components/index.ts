@@ -10,6 +10,7 @@ import ChatContainer from "./Containers/ChatContainer/ChatContainer";
 import AuthContainer from "./Containers/AuthContainer/AuthContainer";
 import Providers from "./Providers/Providers";
 import Login from "./Login/Login";
+import Version from "./Version/Version";
 
 export {
   Header,
@@ -24,4 +25,5 @@ export {
   Providers,
   AuthContainer,
   Login,
+  Version,
 };

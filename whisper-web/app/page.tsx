@@ -7,6 +7,7 @@ import {
   ChatContainer,
   Login,
   Navigation,
+  Version,
 } from "@/components";
 import { useAuth } from "@/context/AuthContext/AuthContext";
 
@@ -25,6 +26,7 @@ export default function Home() {
           <Login callback={signupWithGoogle} />
         </AuthContainer>
       )}
+      <Version />
     </AppContainer>
   );
 }
