@@ -25,11 +25,13 @@ const ChatInput = () => {
   const scroll = useRef<any>();
 
   const scrollToViewHandler = () => {
-    scroll.current.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "end",
-    });
+    setTimeout(() => {
+      scroll.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "end",
+      });
+    }, 500);
   };
 
   const sendMessageHandler = async () => {
@@ -80,8 +82,8 @@ const ChatInput = () => {
 
   return (
     <section>
-      <div className="flex flex-col justify-end w-full h-[70vh] bg-[red] ">
-        <div className="h-full overflow-auto">
+      <div className="flex flex-col justify-end w-full h-[70vh]">
+        <div className="h-full overflow-auto no-scrollbar">
           {allMessages.map(({ messageId, userId, createdAt, message }) => (
             <ChatBubble
               key={messageId}

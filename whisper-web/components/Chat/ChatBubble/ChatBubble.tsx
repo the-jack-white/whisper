@@ -8,9 +8,9 @@ const ChatBubble = ({ isMessageSent, time, message }: ChatBubbleType) => {
   console.log({ isMessageSent, time, message });
 
   return (
-    <div className={`flex px-4 ${isMessageSent && "justify-end"} w-full`}>
+    <div className={`flex my-2 px-4 ${isMessageSent && "justify-end"} w-full`}>
       <div
-        className={`flex flex-col w-4/6 my-2 px-3 pt-3 rounded-2xl ${
+        className={`flex flex-col w-4/6 px-3 pt-3 rounded-2xl ${
           isMessageSent
             ? "bg-primaryLight rounded-br-none"
             : "bg-secondaryDark rounded-bl-none"
@@ -22,7 +22,7 @@ const ChatBubble = ({ isMessageSent, time, message }: ChatBubbleType) => {
             isMessageSent ? "text-secondaryDark" : "text-primaryDark"
           }`}
         >
-          {time.toLocaleTimeString()}
+          {`${time.toDateString()} - ${time.toLocaleTimeString()}`}
         </span>
       </div>
     </div>
