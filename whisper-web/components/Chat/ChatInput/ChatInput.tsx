@@ -32,7 +32,7 @@ const ChatInput = () => {
         block: "end",
         inline: "end",
       });
-    }, 500);
+    }, 600);
   };
 
   const sendMessageHandler = async () => {
@@ -72,6 +72,8 @@ const ChatInput = () => {
       query.forEach((message) => {
         messages.push(message.data());
       });
+
+      scrollToViewHandler();
 
       setAllMessages(messages);
     });
@@ -119,9 +121,7 @@ const ChatInput = () => {
       </div>
       <div className="flex flex-row justify-between items-center gap-4 w-full h-12 rounded-lg bg-tertiary text-primaryDark p-2 mt-4">
         <input
-          // ref={textareaRef}
-          className="rounded bg-tertiary text-primaryDark outline-none no-scrollbar"
-          // cols={50}
+          className="w-full rounded bg-tertiary text-primaryDark outline-none no-scrollbar"
           value={inputValue}
           placeholder="Type a message"
           onChange={(e) => setInputValue(e.target.value)}
