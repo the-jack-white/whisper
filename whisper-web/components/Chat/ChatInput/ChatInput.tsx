@@ -93,7 +93,7 @@ const ChatInput = () => {
 
   return (
     <section className="flex flex-col justify-between h-full">
-      <div className="flex flex-col justify-end w-full h-[calc(80dvh)]">
+      <div className="flex flex-col justify-end w-full h-[calc(70dvh)]">
         <div className="h-full overflow-auto no-scrollbar">
           {allMessages.map(
             ({
