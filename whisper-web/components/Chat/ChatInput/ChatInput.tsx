@@ -92,8 +92,8 @@ const ChatInput = () => {
   // }, [inputValue]);
 
   return (
-    <section>
-      <div className="flex flex-col justify-end w-full h-[90%]">
+    <section className="flex flex-col justify-between h-full">
+      <div className="flex flex-col justify-end w-full h-[calc(80dvh)]">
         <div className="h-full overflow-auto no-scrollbar">
           {allMessages.map(
             ({
@@ -117,7 +117,7 @@ const ChatInput = () => {
           <span id="scrollSpan" ref={scroll} className=""></span>
         </div>
       </div>
-      <div className="flex flex-row justify-between items-center gap-4 w-full h-[9%] rounded-lg bg-tertiary text-primaryDark p-2 mt-4">
+      <div className="flex flex-row justify-between items-center gap-4 w-full h-12 rounded-lg bg-tertiary text-primaryDark p-2 mt-4">
         <input
           // ref={textareaRef}
           className="rounded bg-tertiary text-primaryDark outline-none no-scrollbar"
