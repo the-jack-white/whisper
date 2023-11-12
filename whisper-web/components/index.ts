@@ -10,6 +10,8 @@ import AuthContainer from "./Containers/AuthContainer/AuthContainer";
 import Providers from "./Providers/Providers";
 import Login from "./Login/Login";
 import Version from "./Version/Version";
+import Contacts from "./Contacts/Contacts";
+import ContactsItem from "./Contacts/ContactsItem/ContactsItem";
 
 export {
   Header,
@@ -24,4 +26,6 @@ export {
   AuthContainer,
   Login,
   Version,
+  Contacts,
+  ContactsItem,
 };

@@ -10,7 +10,7 @@ const ChatHeader = ({ name, status }: ChatHeaderProps) => {
   return (
     <section className="flex justify-between items-center w-full h-20 px-2">
       <div className="flex gap-2">
-        <a className="bi bi-person-circle text-5xl text-primaryDark" />
+        <a className="bi bi-person-circle text-5xl text-secondaryDark" />
         <div>
           <h3 className=" text-primaryDark">{name}</h3>
           <span className="text-xs text-secondaryDark">{status}</span>

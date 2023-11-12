@@ -22,7 +22,6 @@ const ChatInput = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [allMessages, setAllMessages] = useState<any[]>([]);
 
-  // const textareaRef = useRef<any>();
   const scroll = useRef<any>();
 
   const scrollToViewHandler = () => {
@@ -84,15 +83,6 @@ const ChatInput = () => {
     scrollToViewHandler();
   }, []);
 
-  // useEffect(() => {
-  //   textareaRef.current.style.height = "0px";
-  //   const scrollHeight = textareaRef.current.scrollHeight;
-
-  //   console.log("Scroll height: ", scrollHeight);
-
-  //   textareaRef.current.style.height = scrollHeight + "px";
-  // }, [inputValue]);
-
   return (
     <section className="flex flex-col justify-between h-full">
       <div className="flex flex-col justify-end w-full h-[calc(70dvh)]">
@@ -126,7 +116,7 @@ const ChatInput = () => {
           placeholder="Type a message"
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={(e) => {
-            if (e.key === "Enter") {
+            if (e.key === "Enter" && inputValue) {
               sendMessageHandler();
             }
           }}
